@@ -17,7 +17,7 @@ export default function Hero() {
           An open-source learning space where I document what I learn every day, in simple language with practical examples.
         </p>
       </div>
-      <div className={`${roboto.className} font-thin flex flex-col sm:flex-row items-center justify-center gap-10`}>
+      <div className={`${roboto.className} font-thin flex flex-col gap-3 sm:flex-row items-center justify-center sm:gap-10`}>
         <Link
           href="/devlogs"
           className="bg-slate-600 text-xl px-4 py-2 rounded hover:bg-slate-700"
