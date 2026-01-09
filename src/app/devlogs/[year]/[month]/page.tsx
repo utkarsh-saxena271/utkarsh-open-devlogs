@@ -1,9 +1,8 @@
-import React from 'react'
-
-const page = () => {
-  return (
-    <div>page</div>
-  )
+export default function Month({
+  params,
+}: {
+  params: { month: string }
+}) {
+  const { month } = params
+  return <div>My Post: {month}</div>
 }
-
-export default page

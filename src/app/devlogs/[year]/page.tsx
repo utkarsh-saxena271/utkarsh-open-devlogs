@@ -1,7 +1,8 @@
-export default function Month(){
-    return(
-        <div>
-            This is my Month Page
-        </div>
-    )
+export default  function Year({
+  params,
+}: {
+  params: { year: string }
+}) {
+  const { year } =  params
+  return <div>My Post: {year}</div>
 }
