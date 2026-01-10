@@ -1,18 +1,29 @@
-import SideBar from "@/components/Devlogs/SideBar"
+// src/app/devlogs/layout.tsx
+import SideBarWrapper from "@/components/Devlogs/SideBarWrapper"
+import { getDevlogsTree } from "@/lib/devlogs"
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Utkarsh ODL | Devlogs",
+};
 
 export default function DevlogsLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode
 }) {
-    return (
-        <div className="min-h-screen grid grid-cols-4">
-            <div className="col-span-1">
-                <SideBar/>
-            </div>
-            <div className="col-span-3">
-                {children}
-            </div>
-        </div>
-    )
+  const tree = getDevlogsTree()
+
+  return (
+    <div className="min-h-screen flex">
+      {/* Sidebar */}
+      <SideBarWrapper tree={tree} />
+
+      {/* Content */}
+      <main className="flex-1 h-screen overflow-auto">
+        {children}
+      </main>
+    </div>
+  )
 }
