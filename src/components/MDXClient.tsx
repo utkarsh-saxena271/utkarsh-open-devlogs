@@ -3,26 +3,44 @@
 import dynamic from "next/dynamic"
 import { useMemo } from "react"
 
-export default function MDXClient({
-  year,
-  month,
-  date,
-}: {
-  year: string
-  month: string
-  date: string
-}) {
-  const MDXContent = useMemo(
-    () =>
-      dynamic(
+type Props =
+  | { year: string }
+  | { year: string; month: string }
+  | { year: string; month: string; date: string }
+
+export default function MDXClient(props: Props) {
+  const MDXContent = useMemo(() => {
+    // 📅 DAY
+    if ("date" in props && "month" in props) {
+      return dynamic(
         () =>
           import(
-            `@/content/devlogs/${year}/${month}/${date}.mdx`
+            `@/content/devlogs/${props.year}/${props.month}/${props.date}.mdx`
           ),
         { ssr: false }
-      ),
-    [year, month, date]
-  )
+      )
+    }
+
+    // 📆 MONTH
+    if ("month" in props) {
+      return dynamic(
+        () =>
+          import(
+            `@/content/devlogs/${props.year}/${props.month}.mdx`
+          ),
+        { ssr: false }
+      )
+    }
+
+    // 📌 YEAR
+    return dynamic(
+      () =>
+        import(
+          `@/content/devlogs/${props.year}.mdx`
+        ),
+      { ssr: false }
+    )
+  }, [props])
 
   return (
     <div className="prose prose-invert max-w-none">
