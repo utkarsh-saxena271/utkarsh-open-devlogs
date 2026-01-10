@@ -1,9 +1,27 @@
----
-title: "Day 9 — Learned Next.js Routing"
-summary: "Dynamic routes, layouts, and sidebar logic"
-date: "2026-01-09"
+## Day 7 — Devlog
+
+## What I worked on today
+
+Today I focused on improving my **Devlogs platform**.  
+The main goal was to make the **year / month / date routing fully dynamic** and ensure MDX files render correctly.
+
+Things I did:
+- Fixed dynamic route params issues
+- Cleaned up the folder structure for MDX files
+- Made the sidebar navigation fully functional
+
 ---
 
-# What I did today
+## Key learnings
 
-content...
+### 1. Dynamic Routes in Next.js App Router
+
+I learned that:
+- Route params can be async
+- `notFound()` is the correct way to handle invalid paths
+- File system checks (`fs.existsSync`) are useful for MDX-based content
+
+```ts
+if (!fs.existsSync(mdxPath)) {
+  notFound()
+}

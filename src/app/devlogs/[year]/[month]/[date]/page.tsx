@@ -35,7 +35,7 @@ export default async function DevlogDatePage({ params }: PageProps) {
         Devlog · {year}/{month}/{date}
       </h1>
 
-      {/* ✅ MDX imported ONLY in client */}
+      {/* ✅ Correct usage */}
       <MDXClient year={year} month={month} date={date} />
     </article>
   )
