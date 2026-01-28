@@ -1,7 +1,7 @@
 
 import { notFound } from "next/navigation"
-import path from "path"
-import fs from "fs"
+// import path from "path"
+// import fs from "fs"
 
 
 export const runtime = "nodejs"
@@ -43,18 +43,18 @@ export default async function DevlogDatePage({ params }: PageProps) {
 }
 
 
-export const dynamicParams = false
+// export const dynamicParams = false
 
 
 
-export function generateStaticParams() {
-  const content = path.join('')
+// export function generateStaticParams() {
+//   const content = path.join('')
 
-  const files = fs.readdirSync(content)
+//   const files = fs.readdirSync(content)
 
-  return files
-    .filter(file => file.endsWith(".mdx"))
-    .map(file => ({
-      slug: file.replace(".mdx", ""),
-    }))
-}
+//   return files
+//     .filter(file => file.endsWith(".mdx"))
+//     .map(file => ({
+//       slug: file.replace(".mdx", ""),
+//     }))
+// }

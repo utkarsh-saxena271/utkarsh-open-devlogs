@@ -6,10 +6,12 @@ interface PageProps {
   }>
 }
 
-import fs from "fs"
+// import fs from "fs"
 import { notFound } from "next/navigation"
-import path from "path"
+// import path from "path"
 
+export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
 
 
 
@@ -29,12 +31,9 @@ export default async function DevlogDatePage({ params }: PageProps) {
         <h1 className="text-3xl font-semibold mb-8">
           Devlog · {year}/{month}/{date}
         </h1>
-
-        {/* ✅ Correct usage */}
         <Post />
       </article>
 
-      //  <Post/>
     )
   } catch (e) {
     console.log(e)
@@ -44,18 +43,18 @@ export default async function DevlogDatePage({ params }: PageProps) {
 
 
 
-export const dynamicParams = false
+// export const dynamicParams = false
 
 
 
-export function generateStaticParams() {
-  const content = path.join('')
+// export function generateStaticParams() {
+//   const content = path.join('')
 
-  const files = fs.readdirSync(content)
+//   const files = fs.readdirSync(content)
 
-  return files
-    .filter(file => file.endsWith(".mdx"))
-    .map(file => ({
-      slug: file.replace(".mdx", ""),
-    }))
-}
+//   return files
+//     .filter(file => file.endsWith(".mdx"))
+//     .map(file => ({
+//       slug: file.replace(".mdx", ""),
+//     }))
+// }
