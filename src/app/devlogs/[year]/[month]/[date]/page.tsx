@@ -1,11 +1,3 @@
-import fs from "fs"
-import path from "path"
-import { notFound } from "next/navigation"
-import MDXClient from "@/components/MDXClient"
-
-export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
-
 interface PageProps {
   params: Promise<{
     year: string
@@ -14,29 +6,56 @@ interface PageProps {
   }>
 }
 
+import fs from "fs"
+import { notFound } from "next/navigation"
+import path from "path"
+
+
+
+
 export default async function DevlogDatePage({ params }: PageProps) {
   const { year, month, date } = await params
+  const path = [year, month, date]
 
-  if (!year || !month || !date) notFound()
 
-  const mdxPath = path.join(
-    process.cwd(),
-    "src/content/devlogs",
-    year,
-    month,
-    `${date}.mdx`
-  )
+  // turn ['uk', 'each', 'element'] → 'uk/each/element'
+  const main_path = path.join('/')
 
-  if (!fs.existsSync(mdxPath)) notFound()
+  try {
+    const { default: Post } = await import(`@/content/devlogs/${main_path}.mdx`)
 
-  return (
-    <article className="px-6 py-12 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-semibold mb-8">
-        Devlog · {year}/{month}/{date}
-      </h1>
+    return (
+      <article className="px-6 py-12 max-w-5xl mx-auto">
+        <h1 className="text-3xl font-semibold mb-8">
+          Devlog · {year}/{month}/{date}
+        </h1>
 
-      {/* ✅ Correct usage */}
-      <MDXClient year={year} month={month} date={date} />
-    </article>
-  )
+        {/* ✅ Correct usage */}
+        <Post />
+      </article>
+
+      //  <Post/>
+    )
+  } catch (e) {
+    console.log(e)
+    notFound()
+  }
+}
+
+
+
+export const dynamicParams = false
+
+
+
+export function generateStaticParams() {
+  const content = path.join('')
+
+  const files = fs.readdirSync(content)
+
+  return files
+    .filter(file => file.endsWith(".mdx"))
+    .map(file => ({
+      slug: file.replace(".mdx", ""),
+    }))
 }

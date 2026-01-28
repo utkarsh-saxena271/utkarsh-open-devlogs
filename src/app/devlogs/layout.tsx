@@ -1,5 +1,5 @@
 // src/app/devlogs/layout.tsx
-import SideBarWrapper from "@/components/Devlogs/SideBarWrapper"
+import SideBar from "@/components/Devlogs/SideBar";
 import { getDevlogsTree } from "@/lib/devlogs"
 import { Metadata } from "next";
 
@@ -18,7 +18,7 @@ export default function DevlogsLayout({
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <SideBarWrapper tree={tree} />
+      <SideBar tree={tree} />
 
       {/* Content */}
       <main className="flex-1 h-screen overflow-auto">
