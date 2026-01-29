@@ -1,0 +1,35 @@
+# 29 January, 2026
+---
+<br/>
+Had college from 8am to 4pm.
+After coming back home:
+- Started with watching a remaining lecture on ***turborepo*** and finished it. 
+- Then started with devops basic concepts and understanding VMs(Virtual Machines).
+- Worked on my project **Case-Dock**
+- Solved the leetcode-POTD
+
+Could not complete the devops lecture, so there's not a lot to summarise about or explain.
+
+**Could not study as much as I expected due to chores at home and getting busy with work, but yeah — progress is progress. I’ll get back to it tomorrow.**
+
+***I’ll also study for some more time after publishing this devlog. I hope you find it informative and useful in some way, especially the***  <u>**what I learned?**</u> ***part below.***
+
+## What I learned?
+---
+### Turborepo - 
+
+We think, Turborepo is a monorepo framework. But is it really? Think about it.<br/>
+The answer is **NO**, it's not a monorepo framework, but a **build system orchestrator**, that uses monorepo frameworks like ***npm/yarn/pnpm workspaces*** based on what runtime you select while initialising a Turborepo.
+
+**What is a build system orchestrator?**
+Basically, it caches builds to optimise build times. I know it sounds so insignificant, but when the monorepo is huge, and when you change something in a particular application inside a monorepo, usually it will rebuild the whole repo, that will take time.
+
+And **Turborepo** optimises this build time, it caches the builds for all the applications inside the monorepo, and when something is changed in a particular app, what does it do? It uses techniques like build caches, parallelisation and dependency graphs. It only rebuilds the application that has a change made in it. And uses the cached builds for other respective applications. Turborepo can cache output of the tasks, can run independent tasks in parallel, and can understand the dependency graph of your monorepo. This means it knows which packages depend on each other and can ensure tasks are run in the correct order.
+
+#### Try initialising a turborepo for yourself!
+```zsh
+npx create-turbo@latest
+```
+refer to the docs: <u>___[read more](https://turborepo.dev/docs/getting-started/installation)___</u>
+
+**Soon, I will add more about what I learn and explanations in the /learn route here to make it easier for you all. Currently, I am building this CMS, but I’ll try to finish the setting up and building fast.**
