@@ -28,9 +28,9 @@ export default async function DevlogDatePage({ params }: PageProps) {
 
     return (
       <article className="px-6 py-12 max-w-5xl mx-auto">
-        <h1 className="text-3xl font-semibold mb-8">
+        {/* <h1 className="text-3xl font-semibold mb-8">
           Devlog · {year}/{month}/{date}
-        </h1>
+        </h1> */}
         <Post />
       </article>
 
