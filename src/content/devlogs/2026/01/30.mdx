@@ -1,0 +1,39 @@
+# 30 January, 2026
+---
+<br/>
+Had college from 8am to 4pm.
+After coming back home:
+- Started with watching a remaining lecture on ***DevOps basics and VMs(Virtual Machines)*** and finished it. 
+- Did some general coding practice
+- Attended a live class on Async JS, Promises, Callbacks, CPU vs I/O Tasks from Harkirat's Bootcamp
+- Worked on my project **Case-Dock**
+- Solved the leetcode-POTD
+
+**Could not study as much as I expected due to chores at home and getting busy with work, but yeah — progress is progress. I’ll get back to it tomorrow.**
+
+***I’ll also study for some more time after publishing this devlog. I hope you find it informative and useful in some way, especially the***  <u>**what I learned?**</u> ***part below.***
+
+## What I learned?
+---
+### Basic concepts about VMs, Internet, SSH protocol - 
+
+Learned about domain names and IP addresses, an IP address is a unique string of numbers that identifies a device on a network, like the internet. A domain name is the readable, human-friendly address we use to access a website's IP.
+Also learned about ways to deploy apps on the internet like bare metal machines, virtual machines, in-house servers, serverless providers, and native Kubernetes options, not deeply, but got the overview of them.
+
+**What is a Virtual Machine?**<br/>
+Virtual Machines run on a physical server called host, but abstracted through a layer of virtualisation software called hypervisor. What this hypervisor does is, it divides the host machine's resources into separate virtual machines, which helps in utilizing the host machine’s compute capacity efficiently.. The virtualization layer introduces a slight overhead in terms of performance because the hypervisor needs to manage resources and ensure each VM operates independently. However, with modern hypervisors and powerful hardware, this overhead is minimal.
+
+
+**What is a Bare Metal Server?**<br/>
+In a bare-metal server the operating system directly runs on the physical hardware without a hypervisor in between. This is especially important for high-performance applications like large databases, gaming servers, or mining crypto.
+
+**What is SSH Protocol?**<br/>
+The SSH protocol (Secure Shell) is a cryptographic network protocol that allows secure communication between two systems, typically for remote administration. It’s most commonly used to log into remote servers and execute commands, but it also facilitates secure file transfers and other operations.
+**Key Features**
+- Encryption : SSH encrypts the data that’s sent between the client and the server, so even if someone intercepts the connection, they can’t read the data.
+- Authentication : SSH uses two types of authentication:
+    - Password based auth : You enter a password to authenticate yourself to the remote system.
+    - Public Key based auth : A more secure method, where the client uses a private key to authenticate, and the server checks it against the corresponding public key. This eliminates the need for passwords and provides an extra layer of security.
+    - Integrity : SSH ensures the integrity of data, meaning that data cannot be tampered with while it’s in transit. If someone tries to alter the data being sent, the connection will be immediately disrupted.
+
+***Will explain SSH in more detail in upcoming devlog or learn section***
