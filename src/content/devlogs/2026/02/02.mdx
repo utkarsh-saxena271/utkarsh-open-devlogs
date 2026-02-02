@@ -1,0 +1,55 @@
+# 02 February, 2026
+---
+<br/>
+Skipped College!
+But the day was productive overall, did
+- Leetcode POTD, and revised an old problem
+- Continued learning Rust, and covered collections - Vectors and HashMaps
+- Read about compiler design
+- Worked on Casedock 
+- Added syntax highlighting for the code snippets for this platform.
+
+
+## What I learned?
+---
+### Collections in Rust
+
+***<u>[github-repo](https://github.com/utkarsh-saxena271/rust-dev-lab/tree/main/rust-collections)</u>***
+
+Rust standard library has a number of data structures called collections, they can contain multiple values.
+The data these collections point to are stored on the heap, i.e., they store dynamic data!
+
+#### Vectors
+Vectors are data structures like arrays, but dynamic, their size can grow or shrink. Just like the vectors in C++.
+
+```rust
+fn main() {
+    // vectors
+    let mut vec = Vec::new();
+    vec.push(10);
+    vec.push(20);
+    vec.push(30);
+    vec.push(40);
+    println!("{:?}",vec)
+}
+```
+
+#### HashMaps
+Hashmaps store values in key value pairs, just like objects in JavaScript or dictionaries in Python.
+Common methods - insert, get, remove, clear
+
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    // hashmaps
+    let mut hash_map = HashMap :: new();
+    hash_map.insert(String::from("utkarsh"), 20);
+    println!("{:?}",hash_map);
+
+}
+```
+---
+<br/>
+
+**That's it for today! Will see you in the next one. <br/> Keep learning and growing.**
