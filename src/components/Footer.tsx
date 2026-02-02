@@ -12,13 +12,13 @@ const Footer = () => {
             Made with &hearts; by Utkarsh
         </div>
         <div className="flex flex-row items-center gap-7">
-            <Link href="">
+            <Link href="https://x.com/404not_utkarsh">
               <BsTwitterX size={25}/>
             </Link>
-            <Link href="">
+            <Link href="https://www.linkedin.com/in/utkarsh-saxena271/">
               <BsLinkedin size={25}/>
             </Link>
-            <Link href="">
+            <Link href="https://github.com/utkarsh-saxena271">
               <BsGithub size={25}/>
             </Link>
         </div>
