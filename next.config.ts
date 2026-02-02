@@ -3,12 +3,16 @@ import type { NextConfig } from "next";
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
+  options: {
+    rehypePlugins: [
+      ["rehype-pretty-code", { theme: "one-dark-pro" }]
+    ],
+  },
 });
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
-  pageExtensions: ["ts", "tsx", "md", "mdx"]
+  pageExtensions: ["ts", "tsx", "md", "mdx"],
 };
 
 export default withMDX(nextConfig);
