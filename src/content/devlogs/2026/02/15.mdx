@@ -12,3 +12,82 @@ Not gonna lie, I felt a bit overwhelmed with all the jargon and how everything w
 I thought I’d be able to write about what I learned today, but I don’t feel like I’ve built a solid understanding yet.
 
 So I’ll revise it, experiment with it, and explain it properly later once things are clearer.
+
+
+
+## What I learned? (DSA)
+---
+### Linked List
+
+***<u>[github-repo](https://github.com/utkarsh-saxena271/my-dev-lab/blob/main/dsa-topics/linked-list/linked-list.c%2B%2B)</u>***
+
+It is a linear, non contiguous data structure, it has nodes, and each node contains data and a pointer to the next node.
+There is a pointer called head that points to the first NODE, and tail that points to NULL in case of a singly linked list.
+
+Defining Node: It has data and a Node pointer.
+```c++
+// Node Class
+class Node{
+    public:
+        int data;
+        Node* next;
+
+        Node(int val){
+            data = val;
+            next = NULL;
+        }
+     
+};
+```
+
+
+Defining List: It has the head and tail pointers, with additional methods like push_front, push_back, pop_front, pop_back.
+I have only implemented push_front and push_back for now, will implement the rest two tomorrow. I have also implemented the print list method to print the linked list.
+```c++
+// List Class
+class List{
+    Node* head;
+    Node* tail;
+
+    public:
+        List(){
+            head = tail = NULL;
+        }
+        
+        void push_front(int val){
+            Node* newNode = new Node(val);
+            if(head == NULL){
+                head = tail = newNode;
+                return;
+            }else{
+                newNode->next = head;
+                head = newNode;
+            }
+        }
+
+        void push_back(int val){
+            Node* newNode = new Node(val);
+            if(head == NULL){
+                head = tail = newNode;
+            }else{
+                tail->next = newNode;
+                tail = newNode;
+            }
+        }
+
+        // Print Linked List
+        void printLinkedList(){
+            Node* temp = head;
+            while (temp != NULL){
+                cout << temp->data << "->";
+                temp = temp->next; 
+            }
+            cout << "NULL" << endl;
+        }
+};
+
+```
+---
+<br/>
+
+**That's it for today! Will see you in the next one. <br/> Keep learning and growing.**
