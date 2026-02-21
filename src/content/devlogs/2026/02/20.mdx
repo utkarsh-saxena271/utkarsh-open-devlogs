@@ -1,0 +1,125 @@
+# 20 February, 2026
+---
+<br/>
+Had college from 8am to 4pm!  
+The day was kinda productive. I:  
+- Solved **2 LeetCode problems** (including the POTD)  
+- Learned about docker
+- Attended live lecture on **DOM and DOM Manipulation** at the cohort
+
+I hope you find it informative and useful in some way, especially the  ***<u>**what I learned?**</u> part below.***
+
+## What I learned?
+---
+### Docker
+Docker is an open-source containerization platform. It basically allows developers to package their applications into images, and then can run instances of those images inside containers. It helps run applications consistently across different environments.
+
+#### What is inside Docker?
+It has a Docker CLI, Docker Engine and a cloud platform called Docker Hub(basically a registry where docker images are stored as public or private, just like github).
+**Docker Engine** is a software that allows developers to package their application into images, also to pull images from the docker registry, or to push their own images to the docker registry and also to run containers.
+
+**Docker CLI** is a tool that allows the developers to interact with docker via their terminal.
+
+
+#### What is Image and Container?
+**Image** - A Docker image is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.
+
+**Container** - A Docker container is the instance of the image, it basically encapsulates the application and its dependencies, running in an isolated environment. In other words it is just s separate runtime where we can run instances of the image.
+Docker container is like a isolated environment that has its own OS, filesystem, ports and resources.
+
+
+**Now let's talk about how we run docker containers and interact with them via our host machines.**
+<br/>
+First, whenever we run a Docker container, we use port mapping to connect with it.
+For example, if we run a MongoDB container, its default port is 27017. This port runs inside the container, not on our host machine.
+To communicate with it from the host, we map the host’s port 27017 to the container’s port 27017.
+
+example
+```bash
+docker run -p 27017:27017 mongo
+```
+---
+
+### Let's see some common docker commands :
+
+
+```bash
+# List all images
+docker images
+```
+```bash
+# List all running containers
+docker ps
+```
+```bash
+#Run a docker container (-p ⇒ let’s you create a port mapping. -d ⇒ Let’s you run it in detached mode)
+docker run
+```
+```bash
+# Build your docker image
+docker build
+```
+```bash
+# Push your image to docker hub
+docker push
+```
+```bash
+# Kill a docker container
+docker kill
+```
+```bash
+# Execute commands inside a docker container
+docker exec
+```
+---
+<br/>
+***So, now you might be thinking, okay we can containerize/dockerize our code, but how do we do that? We do it by creating a Dockerfile.***
+
+### Dockerfile
+A Dockerfile is a text document that contains the commands that the user can call on command line to create a image. This docker file is what runs when we run the command "docker build", and executes to create a docker image that can be pushed to Docker Hub.
+
+It basically has two parts, base image and commands you run on the base image. Let's take a example to create a dockerfile for a basic node application.
+
+***<u>[github-repo](https://github.com/utkarsh-saxena271/my-dev-lab/tree/main/containerising-node-app)</u>***
+```dockerfile
+# base image
+FROM node:22-alpine
+
+# select working directory where code will be copied
+WORKDIR /app
+
+# copy dependency files
+COPY package*.json .
+
+# install dependencies
+RUN npm install
+
+# copy other files
+COPY . .
+
+# expose desired port
+EXPOSE 3000
+
+# this command runs when you run the docker image
+CMD ["node", "index.js"]
+```
+
+And remember we do not copy node_modules, etc inside our image, we install them from our commands we wrote in the dockerfile, so create a .dockerignore file also and list the things you do not want to copy inside the docker image.
+
+``` .dockerignore
+node_modules
+```
+
+After doing these steps, run the following commands one by one to build and push the image to docker hub.
+
+``` bash
+# build the image
+docker build -t <tagname> .
+```
+``` bash
+# push the image to docker hub
+docker push <imagename>
+```
+
+
+**More on this in the next devlog! Thanks for reading.**
