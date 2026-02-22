@@ -8,8 +8,24 @@
 import type { MDXComponents } from 'mdx/types'
 import { Montserrat, Roboto } from "next/font/google";
 import CopyButton from './components/CopyButton';
+import React from 'react';
 const montserrat = Montserrat({ subsets: ["latin"] })
 const roboto = Roboto({ subsets: ["latin"] });
+
+function extractText(node: React.ReactNode): string {
+  if (typeof node === "string") return node;
+
+  if (Array.isArray(node)) {
+    return node.map(extractText).join("");
+  }
+
+  if (React.isValidElement(node)) {
+    const element = node as React.ReactElement<{ children?: React.ReactNode }>;
+    return extractText(element.props.children);
+  }
+
+  return "";
+}
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -36,7 +52,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </code>
     ),
     pre: ({ children }) => {
-      const codeText = String(children?.props?.children || "");
+      const codeText = extractText(children);
 
       return (
         <div className="relative mb-4">
