@@ -28,7 +28,7 @@ function SidebarContent({
   const isActive = (path: string) => pathname === path;
 
   return (
-    <div className="h-full p-4 space-y-1 bg-slate-900 text-slate-400 font-sans selection:bg-blue-500/30">
+    <div className="h-full overflow-y-auto p-4 space-y-1 bg-slate-900 text-slate-400 font-sans selection:bg-blue-500/30">
       <Link
         href="/devlogs"
         onClick={onNavigate}
