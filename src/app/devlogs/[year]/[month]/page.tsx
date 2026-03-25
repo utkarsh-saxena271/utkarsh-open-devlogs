@@ -1,5 +1,5 @@
-// import fs from "fs"
-// import path from "path"
+import fs from "fs"
+import path from "path"
 import { notFound } from "next/navigation"
 
 export const runtime = "nodejs"
@@ -42,18 +42,38 @@ export default async function DevlogDatePage({ params }: PageProps) {
 
 
 
-// export const dynamicParams = false
+export const dynamicParams = true
 
 
 
-// export function generateStaticParams() {
-//   const content = path.join('')
+export async function generateStaticParams() {
+  const devlogsDir = path.join(process.cwd(), "src/content/devlogs")
+  
+  if (!fs.existsSync(devlogsDir)) return []
 
-//   const files = fs.readdirSync(content)
+  const paths: { year: string; month: string }[] = []
 
-//   return files
-//     .filter(file => file.endsWith(".mdx"))
-//     .map(file => ({
-//       slug: file.replace(".mdx", ""),
-//     }))
-// }
+  // 1. Get all Year directories
+  const years = fs.readdirSync(devlogsDir)
+
+  for (const year of years) {
+    const yearPath = path.join(devlogsDir, year)
+    
+    // Only proceed if it's a directory (skip root files like 2026.mdx)
+    if (fs.statSync(yearPath).isDirectory()) {
+      const months = fs.readdirSync(yearPath)
+      
+      for (const monthFile of months) {
+        // 2. Look for Month MDX files (e.g., 03.mdx)
+        if (monthFile.endsWith(".mdx")) {
+          paths.push({
+            year: year,
+            month: monthFile.replace(".mdx", ""),
+          })
+        }
+      }
+    }
+  }
+
+  return paths
+}

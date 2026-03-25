@@ -6,8 +6,9 @@ interface PageProps {
   }>
 }
 
-// import fs from "fs"
+import fs from "fs"
 import { notFound } from "next/navigation"
+import path from "path"
 // import path from "path"
 
 export const runtime = "nodejs"
@@ -44,18 +45,47 @@ export default async function DevlogDatePage({ params }: PageProps) {
 
 
 
-// export const dynamicParams = false
+export const dynamicParams = true
 
 
+export async function generateStaticParams() {
+  const devlogsDir = path.join(process.cwd(), "src/content/devlogs");
+  
+  if (!fs.existsSync(devlogsDir)) return [];
 
-// export function generateStaticParams() {
-//   const content = path.join('')
+  const paths: { year: string; month: string; date: string }[] = [];
 
-//   const files = fs.readdirSync(content)
+  // Crawl: Year -> Month -> Date.mdx
+  const years = fs.readdirSync(devlogsDir);
+  for (const year of years) {
+    const yearPath = path.join(devlogsDir, year);
+    if (!fs.statSync(yearPath).isDirectory()) continue;
 
-//   return files
-//     .filter(file => file.endsWith(".mdx"))
-//     .map(file => ({
-//       slug: file.replace(".mdx", ""),
-//     }))
-// }
+    const months = fs.readdirSync(yearPath);
+    for (const month of months) {
+      const monthPath = path.join(yearPath, month);
+      if (!fs.statSync(monthPath).isDirectory()) continue;
+
+      const files = fs.readdirSync(monthPath);
+      for (const file of files) {
+        if (file.endsWith(".mdx")) {
+          paths.push({
+            year,
+            month,
+            date: file.replace(".mdx", ""),
+          });
+        }
+      }
+    }
+  }
+
+  // Sort by date (descending) and take only the latest 10
+  // This keeps your 'npm run build' instant.
+  return paths
+    .sort((a, b) => {
+      const dateA = `${a.year}-${a.month}-${a.date}`;
+      const dateB = `${b.year}-${b.month}-${b.date}`;
+      return dateB.localeCompare(dateA);
+    })
+    .slice(0, 10); 
+}
