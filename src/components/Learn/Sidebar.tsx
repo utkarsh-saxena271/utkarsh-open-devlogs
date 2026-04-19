@@ -143,8 +143,8 @@ export default function SideBar({ tree }: SideBarProps) {
       <style jsx global>{`
         .custom-sidebar-scrollbar::-webkit-scrollbar { width: 4px; }
         .custom-sidebar-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-sidebar-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
-        .custom-sidebar-scrollbar::-webkit-scrollbar-thumb:hover { background: #475569; }
+        .custom-sidebar-scrollbar::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
+        .custom-sidebar-scrollbar::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
       `}</style>
     </div>
   );

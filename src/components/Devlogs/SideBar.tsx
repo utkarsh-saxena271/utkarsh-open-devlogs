@@ -144,11 +144,11 @@ function SidebarContent({
           background: transparent;
         }
         .custom-sidebar-scrollbar::-webkit-scrollbar-thumb {
-          background: #334155;
+          background: #27272a;
           border-radius: 10px;
         }
         .custom-sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #475569;
+          background: #3f3f46;
         }
       `}</style>
     </div>
