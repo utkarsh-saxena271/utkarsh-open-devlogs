@@ -176,7 +176,7 @@ export default function SideBar({ tree }: SideBarProps) {
         {sidebarContent}
       </aside>
 
-      <aside className="hidden md:flex flex-col w-64 h-screen sticky top-0 bg-zinc-900 border-r border-zinc-800 overflow-hidden">
+      <aside className="hidden md:flex flex-col w-64 h-screen sticky top-0 bg-zinc-950 border-r border-zinc-800 overflow-hidden">
         <div className="p-6 shrink-0 text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase">Navigation</div>
         <div className="flex-1 overflow-hidden">{sidebarContent}</div>
       </aside>

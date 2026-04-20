@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Utkarsh Open Devlogs",
+  title: "Devium",
   description: "Building in public — daily dev logs, simple explanations, real code.",
 };
 
