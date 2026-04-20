@@ -29,8 +29,8 @@ export default function Footer() {
           <h1 className="text-xl select-none tracking-wide text-zinc-100">On the Internet:</h1>
           <div className="flex flex-col items-start justify-center gap-2">
             <Link href='https://x.com/404not_utkarsh' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsTwitterX/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@404not_utkarsh</span></Link>
-          <Link href='/https://github.com/utkarsh-saxena271' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsLinkedin/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@utkarsh-saxena271</span></Link>
-          <Link href='https://www.linkedin.com/in/utkarsh-saxena271/' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsGithub/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@utkarsh-saxena271</span></Link>
+          <Link href='https://www.linkedin.com/in/utkarsh-saxena271/' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsLinkedin/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@utkarsh-saxena271</span></Link>
+          <Link href='https://github.com/utkarsh-saxena271/' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsGithub/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@utkarsh-saxena271</span></Link>
           </div>
         </div>
       </div>
