@@ -1,9 +1,7 @@
-import { Roboto, Montserrat } from "next/font/google";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 
-const roboto = Roboto({ subsets: ["latin"] });
-const montserrat = Montserrat({ subsets: ["latin"] });
+
 
 // fetch GitHub stars (server-side)
 const getGithubStars = async () => {
@@ -20,28 +18,20 @@ const getGithubStars = async () => {
   }
 };
 
-const Navbar = async () => {
-  const stars = await getGithubStars();
+
+export default async function Navbar(){
+   const stars = await getGithubStars();
+
 
   return (
-    <nav
-      className={`${roboto.className} flex justify-between items-center bg-slate-900 px-6 h-20 shadow-sm`}
-    >
-      {/* Logo */}
-      <Link
-        href="/"
-        className={`${montserrat.className} cursor-pointer font-extralight text-3xl text-white hover:text-slate-400 transition-colors`}
-      >
-        Utkarsh-ODL
-      </Link>
-
-      {/* Links (client) */}
-      <NavLinks stars={stars} />
+    <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-3 border-b border-b-zinc-400/40 backdrop-blur-lg">
+      <Link href='/' className="cursor-pointer text-3xl font-thin tracking-wide text-white hover:text-zinc-400 text-shadow-zinc-300/40 text-shadow-xs">Devium</Link>
+      <NavLinks stars = {stars}/>
     </nav>
   );
 };
 
-export default Navbar;
+
 // import { Roboto, Montserrat } from "next/font/google";
 // import Link from "next/link";
 // import { BsGithub, BsStarFill } from "react-icons/bs";

@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Utkarsh Open Devlogs",
+  title: "Devium",
   description: "Building in public — daily dev logs, simple explanations, real code.",
 };
 
@@ -15,8 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" >
-      <body className="antialised bg-slate-900">
-        <div className="min-h-screen flex flex-col text-white bg-linear-to-br from-slate-800 via-slate-850 to-slate-900">
+      <body className="antialised bg-black text-zinc-300 selection:text-zinc-950 selection:bg-zinc-50">
+        <div className="min-h-screen flex flex-col">
         <Navbar/>
         {children}
         <Footer/>

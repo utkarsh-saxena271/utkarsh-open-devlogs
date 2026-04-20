@@ -18,47 +18,47 @@ type Section =
 const sections: Section[] = [
   {
     type: "list",
-    title: "What you’ll find here",
+    title: "What this is",
     items: [
-      "Daily coding updates",
-      "What I learned",
-      "Bugs I faced & how I fixed them",
-      "Architecture & design decisions",
-      "Links to projects & commits",
+      "Daily logs of what I’m building",
+      "DSA practice and learnings",
+      "Bugs I hit and how I fixed them",
+      "Decisions I make while building",
+      "Real progress, not highlights",
     ],
   },
   {
     type: "text",
-    title: "Why I write devlogs",
+    title: "Why I do this",
     content:
-      "Writing devlogs helps me stay consistent, reflect on what I learned, and document real-world problems I face while building things. It also acts as a public notebook for future me — and maybe for you too.",
+      "This keeps me consistent. It forces me to show up, do the work, and reflect. Over time, this becomes proof, not just for others, but for myself.",
   },
   {
     type: "list",
-    title: "How each devlog is structured",
+    title: "What a typical log looks like",
     items: [
-      "What I worked on that day",
-      "Concepts or tools I learned",
-      "Problems or blockers",
-      "How I solved them",
-      "Next steps",
+      "What I worked on",
+      "What I learned",
+      "Problems I faced",
+      "How I approached them",
+      "What’s next",
     ],
   },
   {
     type: "list",
-    title: "Current focus areas",
+    title: "Current focus",
     items: [
-      "Full-stack web development",
-      "Backend & system design",
-      "DevOps & infrastructure basics",
-      "Web 3 and distributed systems",
+      "DSA and problem solving",
+      "Full-stack development",
+      "Backend and system thinking",
+      "Shipping real projects",
     ],
   },
 ]
 
 const Devlogs = () => {
   return (
-    <main className="min-h-screen px-8 py-20 bg-slate-800 text-slate-100">
+    <main className="min-h-screen px-8 py-20 bg-zinc-950 text-zinc-100">
       <div className="max-w-4xl mx-auto space-y-16">
 
         {/* Heading */}
@@ -69,9 +69,9 @@ const Devlogs = () => {
             Devlogs
           </h1>
           <p
-            className={`text-lg md:text-xl text-slate-400 max-w-2xl ${roboto.className}`}
+            className={`text-lg md:text-xl text-zinc-400 max-w-2xl ${roboto.className}`}
           >
-            Daily progress, learnings, and experiments while building real-world projects.
+            Daily logs of building, learning, and figuring things out.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ const Devlogs = () => {
         {sections.map((section) => (
           <div
             key={section.title}
-            className="pl-6 border-l border-slate-700 space-y-4"
+            className="pl-6 border-l border-zinc-700 space-y-4"
           >
             <h2 className={`text-2xl font-semibold ${montserrat.className}`}>
               {section.title}
@@ -87,7 +87,7 @@ const Devlogs = () => {
 
             {section.type === "list" ? (
               <ul
-                className={`list-disc list-inside text-lg text-slate-300 space-y-2 ${roboto.className}`}
+                className={`list-disc list-inside text-lg text-zinc-300 space-y-2 ${roboto.className}`}
               >
                 {section.items.map((item) => (
                   <li key={item}>{item}</li>
@@ -95,7 +95,7 @@ const Devlogs = () => {
               </ul>
             ) : (
               <p
-                className={`text-slate-300 text-lg leading-relaxed ${roboto.className}`}
+                className={`text-zinc-300 text-lg leading-relaxed ${roboto.className}`}
               >
                 {section.content}
               </p>
@@ -104,7 +104,7 @@ const Devlogs = () => {
         ))}
 
         {/* Footer */}
-        <div className={`text-slate-400 text-base ${roboto.className}`}>
+        <div className={`text-zinc-400 text-base ${roboto.className}`}>
           Pick a date from the sidebar to start reading →
         </div>
 

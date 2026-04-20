@@ -1,2 +1,69 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@keyframes line-h {
+  0% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  80% {
+    transform: scaleX(1.05);
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+
+@keyframes line-v {
+  0% {
+    transform: scaleY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: scaleY(1.05);
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+
+
+@keyframes opc{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hiden{
+  0% {
+    opacity: 1;
+  }
+  80%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.animate-opc {
+  animation: opc 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards ;
+}
+.animate-hiden {
+  animation: hiden 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+
+}
+
+.animate-line-h {
+  animation: line-h 1.7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  transform-origin: left;
+}
+
+.animate-line-v {
+  animation: line-v 1.7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  transform-origin: top;
+}
