@@ -4,7 +4,7 @@ import { getLearnTree } from "@/lib/learn";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Utkarsh ODL | Learn",
+  title: "Devium | Learn",
 };
 
 export default function LearnLayout({

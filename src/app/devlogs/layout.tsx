@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  title: "Utkarsh ODL | Devlogs",
+  title: "Devium | Devlogs",
 };
 
 export default function DevlogsLayout({
