@@ -21,16 +21,16 @@ export default function Footer() {
         <div className="col-span-1 flex flex-col items-start justify-start gap-3">
           <h1 className="text-xl select-none tracking-wide text-zinc-100">Content</h1>
           <div className="flex flex-col items-start justify-center gap-2">
-            <Link href='/' className="text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out" >Devlogs</Link>
-          <Link href='/' className="text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out">Learn</Link>
+            <Link href='/devlogs' className="text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out" >Devlogs</Link>
+          <Link href='/learn' className="text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out">Learn</Link>
           </div>
         </div>
         <div className="col-span-1 flex flex-col items-start justify-start gap-3">
           <h1 className="text-xl select-none tracking-wide text-zinc-100">On the Internet:</h1>
           <div className="flex flex-col items-start justify-center gap-2">
-            <Link href='/' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsTwitterX/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@404not_utkarsh</span></Link>
-          <Link href='/' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsLinkedin/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@utkarsh-saxena271</span></Link>
-          <Link href='/' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsGithub/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@utkarsh-saxena271</span></Link>
+            <Link href='https://x.com/404not_utkarsh' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsTwitterX/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@404not_utkarsh</span></Link>
+          <Link href='/https://github.com/utkarsh-saxena271' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsLinkedin/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@utkarsh-saxena271</span></Link>
+          <Link href='https://linkedin.com/utkarsh-saxena271' className="flex items-center gap-2 text-md text-zinc-400 hover:text-zinc-200 transition-colors duration-100 ease-in-out"><BsGithub/><span className="text-sm md:text-base underline decoration-dashed underline-offset-2 decoration-zinc-500">@utkarsh-saxena271</span></Link>
           </div>
         </div>
       </div>
