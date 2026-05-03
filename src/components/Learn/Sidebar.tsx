@@ -12,6 +12,84 @@ interface SideBarProps {
 
 /* ================= SidebarItem (Recursive) ================= */
 
+// function SidebarItem({
+//   node,
+//   expanded,
+//   toggle,
+//   pathname,
+//   onNavigate,
+// }: {
+//   node: LearnNode;
+//   expanded: Record<string, boolean>;
+//   toggle: (key: string) => void;
+//   pathname: string;
+//   onNavigate?: () => void;
+// }) {
+//   const isOpen = expanded[node.path];
+//   const fullPath = `/learn/${node.path}`;
+//   const active = pathname === fullPath;
+  
+
+//   if (node.type === "file") {
+//     return (
+//       <Link
+//         href={fullPath}
+//         onClick={onNavigate}
+//         className={`flex items-center gap-2.5 px-3 py-1.5 rounded-md text-sm transition-all group/item ${
+//           active
+//             ? "bg-zinc-200/70 text-zinc-900 font-medium"
+//             : "hover:bg-zinc-800 hover:text-zinc-200"
+//         }`}
+//       >
+//         <FileText
+//           size={14}
+//           className={`shrink-0 ${
+//             active ? "text-zinc-900" : "text-zinc-600 group-hover/item:text-zinc-400"
+//           }`}
+//         />
+//         <span className="truncate min-w-0">{node.title}</span>
+//       </Link>
+//     );
+//   }
+
+//   return (
+//     <div className="space-y-1">
+//       <div className="flex items-center group">
+//         <button
+//           onClick={() => toggle(node.path)}
+//           className="p-1 rounded-md hover:bg-zinc-800 transition-colors shrink-0"
+//         >
+//           <ChevronRight
+//             size={16}
+//             className={`transition-transform duration-200 ${
+//               isOpen ? "rotate-90 text-zinc-200" : "text-zinc-500"
+//             }`}
+//           />
+//         </button>
+//         <span   className="flex-1 px-2 py-1 text-sm font-semibold tracking-wide text-zinc-400 cursor-default truncate min-w-0">
+//           {node.name}
+//         </span>
+//       </div>
+
+//       {isOpen && (
+//         <div className="ml-3 pl-3 border-l border-zinc-800/50 space-y-1">
+//           {node.children.map((child) => (
+//             <SidebarItem
+//               key={child.path}
+//               node={child}
+//               expanded={expanded}
+//               toggle={toggle}
+//               pathname={pathname}
+//               onNavigate={onNavigate}
+//             />
+//           ))}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+/* ================= SidebarItem (Recursive) ================= */
+
 function SidebarItem({
   node,
   expanded,
@@ -53,19 +131,23 @@ function SidebarItem({
 
   return (
     <div className="space-y-1">
-      <div className="flex items-center group">
-        <button
-          onClick={() => toggle(node.path)}
-          className="p-1 rounded-md hover:bg-zinc-800 transition-colors shrink-0"
-        >
+      {/* 
+          CHANGED: Moved onClick to this div and made it a button-like interaction 
+          for better UX. Added hover effects to the entire row.
+      */}
+      <div 
+        onClick={() => toggle(node.path)}
+        className="flex items-center group cursor-pointer hover:bg-zinc-800/50 rounded-md transition-colors pr-2"
+      >
+        <div className="p-1 shrink-0">
           <ChevronRight
             size={16}
             className={`transition-transform duration-200 ${
               isOpen ? "rotate-90 text-zinc-200" : "text-zinc-500"
             }`}
           />
-        </button>
-        <span className="flex-1 px-2 py-1 text-sm font-semibold tracking-wide text-zinc-400 cursor-default truncate min-w-0">
+        </div>
+        <span className="flex-1 px-1 py-1 text-sm font-semibold tracking-wide text-zinc-400 group-hover:text-zinc-200 transition-colors truncate min-w-0">
           {node.name}
         </span>
       </div>
